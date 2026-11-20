@@ -1,6 +1,6 @@
 #include "functions.h"
 
-int main(long userArrayLen, char *userArray[])
+int main(long long userArrayLen, char *userArray[])
 {
 	//Проверяем правильность ввода
         if (checkInput( &userArrayLen, userArray ) )

@@ -19,7 +19,7 @@ int checkInput(long long *userLeight, char *userArray[])
 			//Проверка на наличие в числе точку
                         if ( strchr(userArray[indexArray], '.') != NULL )
                         {
-                                printf("Ошибка ввода: введено не целое число %c\n", lastSymbol);
+                                printf("Ошибка ввода: введено не целое число \n");
                                 return 0;
                         }
                 }
@@ -87,7 +87,7 @@ int checkInput(long long *userLeight, char *userArray[])
 
 
 //Данная функция принимает 2 операнда и оператор, после чего возвращает значение выражение
-long long mathOperations( long long *leftOperand, long long *rightOperand, char *operator )
+long mathOperations( long *leftOperand, long *rightOperand, char *operator )
 {
         switch( *operator)
         {
@@ -111,12 +111,12 @@ long long mathOperations( long long *leftOperand, long long *rightOperand, char 
 }
 
 //Перевод массива строк в массив long, в котором будет лежать значения выражений
-void fillingAnswerArray(long long *resultArray, char *userArray[], long *userLeightArray)
+void fillingAnswerArray(long long *resultArray, char *userArray[], long long *userLeightArray)
 {
         for(int indexArray = 1; indexArray < (*userLeightArray - 2); indexArray += 3)
         {
-                long leftOperand = strtollong(userArray[indexArray], NULL, 10);
-                long rightOperand = strtoll(userArray[indexArray + 2], NULL, 10);
+                long leftOperand = strtol(userArray[indexArray], NULL, 10);
+                long rightOperand = strtol(userArray[indexArray + 2], NULL, 10);
                 resultArray[indexArray/3] = mathOperations(&leftOperand, &rightOperand, userArray[indexArray+1]);
         }
 }
