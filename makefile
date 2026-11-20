@@ -1,7 +1,7 @@
-OBJF = time.o functions.o
+OBJF = calculator.o functions.o
 
-time.o: time.c
-	gcc  time.c -c 
+calculator.o: calculator.c
+	gcc  calculator.c -c 
 
 functions.o: functions.c functions.h
 	gcc  functions.c -c 
